@@ -1,3 +1,4 @@
 export enum QueuesEnum {
-  FILE_UPLOAD = 'fileUpload',
+  FILES_TO_UPLOAD = 'files-to-upload-queue',
+  FILES_TO_PROCESS = 'files-to-process-queue.fifo',
 }
