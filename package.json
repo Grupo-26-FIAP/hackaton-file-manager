@@ -29,6 +29,7 @@
     "@nestjs/swagger": "^11.0.7",
     "@ssut/nestjs-sqs": "^3.0.1",
     "aws-sdk": "^2.1692.0",
+    "aws-sdk-client-mock": "^4.1.0",
     "bullmq": "^5.44.4",
     "dotenv": "^16.5.0",
     "jsonwebtoken": "^9.0.2",

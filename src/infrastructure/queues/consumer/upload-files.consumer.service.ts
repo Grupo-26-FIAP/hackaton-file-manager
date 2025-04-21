@@ -25,9 +25,7 @@ export class UploadFilesConsumerService {
     this.worker = new Worker(
       QueuesEnum.FILES_TO_UPLOAD,
       async (job) => this.process(job),
-      {
-        connection: this.connection,
-      },
+      { connection: this.connection },
     );
   }
 
@@ -35,7 +33,6 @@ export class UploadFilesConsumerService {
     const filesUploadedKeys: string[] = await this.uploadService.uploadFiles(
       job.data,
     );
-    console.log({ filesUploadedKeys });
 
     await this.producerQueueService.sendUploadedFilesToProcessQueue({
       userId: job.data.userId,

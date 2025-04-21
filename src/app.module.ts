@@ -5,7 +5,6 @@ import { S3Service } from '@Infrastructure/upload/s3.service';
 import { UploadService } from '@Infrastructure/upload/upload.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { EventEmitterModule } from '@nestjs/event-emitter';
 import { FileService } from '@Services/file.service';
 import { QueuesEnum } from '@Shared/enums/queues.enum';
 import { SqsModule } from '@ssut/nestjs-sqs';
@@ -23,7 +22,6 @@ AWS.config.update({
 
 @Module({
   imports: [
-    EventEmitterModule.forRoot(),
     ConfigModule.forRoot({ isGlobal: true }),
     SqsModule.register({
       producers: [

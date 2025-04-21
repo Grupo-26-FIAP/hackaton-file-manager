@@ -46,8 +46,7 @@ export class S3Service {
 
       return `https://${this.bucket}.s3.amazonaws.com/${key}`;
     } catch (error) {
-      console.error('Error uploading file to S3:', error);
-      throw new Error('Failed to upload file to S3');
+      throw new Error(`Failed to upload file to S3. Error: ${error.message}`);
     }
   }
 }

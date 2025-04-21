@@ -1,6 +1,10 @@
 import { DataToUploadQueueInterface } from '@Infrastructure/queues/interfaces/data-to-upload.queue.interface';
 import { ProducerQueueService } from '@Infrastructure/queues/producer/provider.service';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { QueuesEnum } from '@Shared/enums/queues.enum';
 
 @Injectable()
@@ -13,6 +17,10 @@ export class FileService {
   ): Promise<void> {
     if (!userId) {
       throw new UnauthorizedException();
+    }
+
+    if (!files?.length) {
+      throw new UnprocessableEntityException();
     }
 
     const jobName = `${new Date().toISOString()}:${userId}`;
