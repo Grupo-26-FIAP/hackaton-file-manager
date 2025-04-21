@@ -6,9 +6,10 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { FileService } from '@Services/file.service';
 import { MAX_FILES_PER_REQUEST } from '@Shared/constants/files.constant';
+import { GetCurrentUserId } from '@Shared/decorators/get-user-id.decorator';
 
 @ApiTags('File')
 @Controller('/file')
@@ -16,10 +17,14 @@ export class FileController {
   constructor(private readonly fileService: FileService) {}
 
   @Post('upload')
+  @ApiBearerAuth()
   @UseInterceptors(
     FilesInterceptor('files', MAX_FILES_PER_REQUEST, multerConfig),
   )
-  async uploadFile(@UploadedFiles() files: Express.Multer.File[]) {
-    await this.fileService.upload(files);
+  async uploadFiles(
+    @UploadedFiles() files: Express.Multer.File[],
+    @GetCurrentUserId() userId: string,
+  ): Promise<void> {
+    await this.fileService.uploadFiles(userId, files);
   }
 }

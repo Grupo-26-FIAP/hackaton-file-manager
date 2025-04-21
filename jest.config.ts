@@ -16,9 +16,10 @@ const config: Config.InitialOptions = {
   coverageDirectory: './coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@Domain/(.*)$': '<rootDir>/src/domain/$1',
+    '^@Controllers/(.*)$': '<rootDir>/src/controllers/$1',
     '^@Infrastructure/(.*)$': '<rootDir>/src/infrastructure/$1',
-    '^@Presentation/(.*)$': '<rootDir>/src/presentation/$1',
+    '^@Repositories/(.*)$': '<rootDir>/src/repositories/$1',
+    '^@Services/(.*)$': '<rootDir>/src/services/$1',
     '^@Shared/(.*)$': '<rootDir>/src/shared/$1',
     '^@Test/(.*)$': '<rootDir>/test/$1',
   },
