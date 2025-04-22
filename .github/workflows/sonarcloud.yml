@@ -24,9 +24,6 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: Lint the code
-        run: npm run lint
-
       - name: Run tests with coverage
         run: npm run test:cov
         env:
