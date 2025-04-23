@@ -1,4 +1,7 @@
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Grupo-26-FIAP_hackaton-file-manager&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Grupo-26-FIAP_hackaton-file-manager)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Grupo-26-FIAP_hackaton-file-manager&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Grupo-26-FIAP_hackaton-file-manager)
+
 # Hackaton File Manager
 
 Serviço responsável pela gestão e processamento de arquivos no ecossistema do Tech Challenge FIAP. Este projeto faz parte da arquitetura de microsserviços do Grupo 26.
