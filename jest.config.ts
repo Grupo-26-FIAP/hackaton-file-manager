@@ -13,7 +13,7 @@ const config: Config.InitialOptions = {
   rootDir: '.',
   testRegex: '.*\\.spec\\.ts$',
   transform: { '^.+\\.(t|j)s$': 'ts-jest' },
-  coverageDirectory: './coverage',
+  coverageDirectory: 'coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
     '^@Controllers/(.*)$': '<rootDir>/src/controllers/$1',
