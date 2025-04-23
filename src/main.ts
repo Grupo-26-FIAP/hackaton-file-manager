@@ -8,7 +8,7 @@ async function start(): Promise<void> {
     bufferLogs: true,
   });
 
-  await application.listen(process.env.PORT ?? 3000);
+  await application.listen(process.env.PORT ?? 3003);
 }
 
 void start();
