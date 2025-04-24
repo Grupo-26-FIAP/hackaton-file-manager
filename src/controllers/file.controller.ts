@@ -1,6 +1,7 @@
 import { multerConfig } from '@Infrastructure/upload/multer.config';
 import {
   Controller,
+  Get,
   Post,
   UploadedFiles,
   UseInterceptors,
@@ -26,5 +27,10 @@ export class FileController {
     @GetCurrentUserId() userId: string,
   ): Promise<void> {
     await this.fileService.uploadFiles(userId, files);
+  }
+
+  @Get('/')
+  async get(): Promise<string> {
+    return 'it works!';
   }
 }

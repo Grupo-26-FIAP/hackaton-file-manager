@@ -8,6 +8,7 @@ async function start(): Promise<void> {
     bufferLogs: true,
   });
 
+  application.setGlobalPrefix('file-manager');
   await application.listen(process.env.PORT ?? 3003);
 }
 
