@@ -19,7 +19,7 @@ async function start(): Promise<void> {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(application, config);
-  SwaggerModule.setup('docs', application, document);
+  SwaggerModule.setup('file-manager/docs', application, document);
 
   await application.listen(process.env.PORT ?? 3003);
 }
