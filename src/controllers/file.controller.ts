@@ -7,7 +7,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { FileService } from '@Services/file.service';
 import { MAX_FILES_PER_REQUEST } from '@Shared/constants/files.constant';
 import { GetCurrentUserId } from '@Shared/decorators/get-user-id.decorator';
@@ -19,6 +19,23 @@ export class FileController {
 
   @Post('upload')
   @ApiBearerAuth()
+  @ApiConsumes('multipart/form-data') // Indica que o endpoint aceita arquivos
+  @ApiBody({
+    description: 'Upload de arquivos',
+    schema: {
+      type: 'object',
+      properties: {
+        files: {
+          type: 'array',
+          items: {
+            type: 'string',
+            format: 'binary', // Indica que é um arquivo
+          },
+        },
+      },
+    },
+  })
+  
   @UseInterceptors(
     FilesInterceptor('files', MAX_FILES_PER_REQUEST, multerConfig),
   )
